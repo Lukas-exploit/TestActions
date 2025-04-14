@@ -25,6 +25,9 @@ jobs:
       - name: 🛠 Projekt bauen (Vite)
         run: npm run build
 
+      - name: Exe bauen
+        run : npm run dist
+
       # Optional: Tests (falls du welche hast)
       # - name: 🧪 Tests ausführen
       #   run: npm test
