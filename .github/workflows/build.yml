@@ -1,0 +1,30 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Repository klonen
+        uses: actions/checkout@v3
+
+      - name: 🧰 Node.js installieren
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 📦 Abhängigkeiten installieren
+        run: npm install
+
+      - name: 🛠 Projekt bauen (Vite)
+        run: npm run build
+
+      # Optional: Tests (falls du welche hast)
+      # - name: 🧪 Tests ausführen
+      #   run: npm test
